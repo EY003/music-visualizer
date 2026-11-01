@@ -59,7 +59,7 @@ impl VisualizerApp {
         }));
 
         // Spawn background thread for Windows SMTC Media Session monitoring
-        let track_info_clone = Arc::clone(&track_info);
+        let _track_info_clone = Arc::clone(&track_info);
         let ctx_clone = cc.egui_ctx.clone();
         std::thread::spawn(move || {
             tokio::runtime::Runtime::new().unwrap().block_on(async {
@@ -190,7 +190,6 @@ impl eframe::App for VisualizerApp {
                     let mut click_through_val = self.settings.click_through;
                     if ui.checkbox(&mut click_through_val, "Click-Through Desktop Mode").changed() {
                         self.settings.click_through = click_through_val;
-                        // Win32 API window style toggle for click-through can be hooked here
                     }
                 });
         }
@@ -239,7 +238,6 @@ fn main() -> Result<(), eframe::Error> {
         viewport: egui::ViewportBuilder::default()
             .with_transparent(true)
             .with_decorations(false)
-            .with_always_on_bottom(true)
             .with_inner_size([1920.0, 1080.0]),
         ..Default::default()
     };
