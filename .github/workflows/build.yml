@@ -19,3 +19,4 @@ jobs:
         with:
           name: music_visualizer_exe
           path: target/release/music_visualizer.exe
+          
