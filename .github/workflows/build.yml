@@ -12,7 +12,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         
       - name: Build Release Binary
-        working-directory: ./music_visualizer
+        working-directory: music_visualizer
         run: cargo build --release
         
       - name: Upload Executable Artifact
